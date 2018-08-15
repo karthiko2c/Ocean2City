@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SubQuip.Common\Ocean2City.Common.csproj" />
+    <ProjectReference Include="..\SubQuip.Data\Ocean2City.Data.csproj" />
+    <ProjectReference Include="..\SubQuip.Entity\Ocean2City.Entity.csproj" />
+    <ProjectReference Include="..\SubQuip.Model\Ocean2City.ViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Logic\RoleManagerService.cs" />
+  </ItemGroup>
+</Project>

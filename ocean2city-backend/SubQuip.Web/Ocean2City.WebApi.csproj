@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DocumentationFile>.\ocean2city.webapi.xml</DocumentationFile>
+    <NoWarn></NoWarn>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+    <AssemblyName>Ocean2City.WebApi</AssemblyName>
+    <RootNamespace>Ocean2City.WebApi</RootNamespace>
+    <PackageId>Ocean2City.WebApi</PackageId>
+    <Authors>Ocean2City.WebApi</Authors>
+    <Company>Ocean2City.WebApi</Company>
+    <Product>Ocean2City.WebApi</Product>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+    <PackageReference Include="SendGrid" Version="9.9.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="1.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.csproj.CopyComplete" />
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.dll" />
+    <None Include="obj\Debug\netcoreapp2.0\Ocean2City.WebApi.pdb" />
+    <None Include="obj\Ocean2City.WebApi.csproj.nuget.cache" />
+    <None Include="obj\Ocean2City.WebApi.csproj.nuget.g.props" />
+    <None Include="obj\Ocean2City.WebApi.csproj.nuget.g.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SubQuip.Data\Ocean2City.Data.csproj" />
+    <ProjectReference Include="..\SubQuip.Service\Ocean2City.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+</Project>

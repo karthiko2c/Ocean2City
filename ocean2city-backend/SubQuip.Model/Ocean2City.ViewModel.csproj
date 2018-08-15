@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Ocean2City.ViewModel</AssemblyName>
+    <RootNamespace>Ocean2City.ViewModel</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Approval\**" />
+    <Compile Remove="Candidate\**" />
+    <Compile Remove="Location\**" />
+    <Compile Remove="Opening\**" />
+    <EmbeddedResource Remove="Approval\**" />
+    <EmbeddedResource Remove="Candidate\**" />
+    <EmbeddedResource Remove="Location\**" />
+    <EmbeddedResource Remove="Opening\**" />
+    <None Remove="Approval\**" />
+    <None Remove="Candidate\**" />
+    <None Remove="Location\**" />
+    <None Remove="Opening\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SubQuip.Common\Ocean2City.Common.csproj" />
+  </ItemGroup>
+</Project>

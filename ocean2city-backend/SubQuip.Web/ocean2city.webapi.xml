@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ocean2City.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Ocean2City.WebApi.BuildUnityContainer">
+            <summary>
+            Container
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.BuildUnityContainer.RegisterAddTransient(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Register Service and Repository
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ocean2City.WebApi.Controllers.CategoryController">
+            <summary>
+            Category Controller
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.CategoryController.#ctor(Ocean2City.Business.Interfaces.ICategoryManagerService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the CategoryController
+            </summary>
+            <param name="categoryManager"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.CategoryController.Categories">
+            <summary>
+            Get All Categories.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.CategoryController.Details(System.String)">
+            <summary>
+            Get a specific Category by its identifier.
+            </summary>
+            <returns>The specific category.</returns>
+            <param name="id">Identifier of the Category.</param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.CategoryController.AddCategory">
+            <summary>
+            Add new category
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.CategoryController.UpdateCategory">
+            <summary>
+            Update category
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ocean2City.WebApi.Controllers.ItemController">
+            <summary>
+            Item Controller
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.#ctor(Ocean2City.Business.Interfaces.IItemManagerService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the ItemController
+            </summary>
+            <param name="itemManager"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.Items">
+            <summary>
+            Get All Items.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.Details(System.String)">
+            <summary>
+            Get a specific Item by its identifier.
+            </summary>
+            <returns>The specific item.</returns>
+            <param name="id">Identifier of the Item.</param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.AddItem">
+            <summary>
+            Add new item.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.UpdateItem">
+            <summary>
+            Update item.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ocean2City.WebApi.Startup">
+            <summary>
+            Web api startup
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Startup constructor
+            </summary>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
