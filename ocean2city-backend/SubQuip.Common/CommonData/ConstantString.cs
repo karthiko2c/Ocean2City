@@ -63,6 +63,21 @@
         public const string NoItem = "No Item found";
     }
 
+    public static class UserNotification
+    {
+        public const string Saved = "User Details Saved Successfully";
+        public const string UserDetailsNotProvided = "User Details Not Provided";
+        public const string NoUser = "User Not found";
+    }
+
+    public static class OrderNotification
+    {
+        public const string Saved = "Order Details Saved Successfully";
+        public const string OrderDetailsNotProvided = "Order Details Not Provided";
+        public const string NoOrder = "Order Not found";
+        public const string NoCartItems = "Cart Items Not found";
+    }
+
     public static class CommonErrorMessages
     {
         public const string UnknownError = "Sorry, we have encountered an error.";

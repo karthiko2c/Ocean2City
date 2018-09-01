@@ -16,7 +16,11 @@ namespace Ocean2City.ViewModel.Item
 
         public string Recipe { get; set; }
 
-        public double Price { get; set; }
+        public double PriceWithoutClean { get; set; }
+
+        public double PriceWithClean { get; set; }
+
+        public int Discount { get; set; }
 
         public string Image { get; set; }
 

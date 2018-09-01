@@ -90,6 +90,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Ocean2City.WebApi.Controllers.OrderController">
+            <summary>
+            Order Controller
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.OrderController.#ctor(Ocean2City.Business.Interfaces.IUserManagerService)">
+            <summary>
+            Initializes a new instance of the OrderController
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.OrderController.ConfirmedOrder(Ocean2City.ViewModel.Order.Order)">
+            <summary>
+            Save Order Details.
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
         <member name="T:Ocean2City.WebApi.Startup">
             <summary>
             Web api startup
