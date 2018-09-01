@@ -23,9 +23,15 @@ namespace Ocean2City.Entity.Models
         [BsonElement("recipe")]
         public string Recipe { get; set; }
 
-        [BsonElement("price")]
-        public double Price { get; set; }
+        [BsonElement("priceWithoutClean")]
+        public double PriceWithoutClean { get; set; }
 
+        [BsonElement("priceWithClean")]
+        public double PriceWithClean { get; set; }
+
+        [BsonElement("discount")]
+        public int Discount { get; set; }
+        
         [BsonElement("image")]
         public string Image { get; set; }
 

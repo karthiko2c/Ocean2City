@@ -152,7 +152,9 @@ namespace Ocean2City.Business.Logic
                     .Set(x => x.ItemName, itemViewModel.ItemName)
                     .Set(x => x.Image, itemViewModel.Image)
                     .Set(x => x.IsAvailable, itemViewModel.IsAvailable)
-                    .Set(x => x.Price, itemViewModel.Price)
+                    .Set(x => x.Recipe, itemViewModel.Recipe)
+                    .Set(x => x.PriceWithClean, itemViewModel.PriceWithClean)
+                    .Set(x => x.PriceWithoutClean, itemViewModel.PriceWithoutClean)
                     .Set(x => x.AliasName, itemViewModel.AliasName)
                     .Set(x => x.Description, itemViewModel.Description);
                 _itemRepository.UpdateOne(t => t.ItemId == ObjectId.Parse(itemViewModel.ItemId), updateDefinition);
