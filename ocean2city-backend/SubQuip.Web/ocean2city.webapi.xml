@@ -78,6 +78,13 @@
             <returns>The specific item.</returns>
             <param name="id">Identifier of the Item.</param>
         </member>
+        <member name="M:Ocean2City.WebApi.Controllers.ItemController.GetItemsByCategory(System.String)">
+            <summary>
+            Get Items by it category id.
+            </summary>
+            <returns>The items.</returns>
+            <param name="id">Identifier of the category.</param>
+        </member>
         <member name="M:Ocean2City.WebApi.Controllers.ItemController.AddItem">
             <summary>
             Add new item.
@@ -95,11 +102,12 @@
             Order Controller
             </summary>
         </member>
-        <member name="M:Ocean2City.WebApi.Controllers.OrderController.#ctor(Ocean2City.Business.Interfaces.IUserManagerService)">
+        <member name="M:Ocean2City.WebApi.Controllers.OrderController.#ctor(Ocean2City.Business.Interfaces.IUserManagerService,Ocean2City.Business.Logic.OrderDetailManagerService)">
             <summary>
             Initializes a new instance of the OrderController
             </summary>
             <param name="userManager"></param>
+            <param name="orderDetailManager"></param>
         </member>
         <member name="M:Ocean2City.WebApi.Controllers.OrderController.ConfirmedOrder(Ocean2City.ViewModel.Order.Order)">
             <summary>
@@ -107,6 +115,30 @@
             </summary>
             <param name="order"></param>
             <returns></returns>
+        </member>
+        <member name="T:Ocean2City.WebApi.Controllers.UserController">
+            <summary>
+            User Controller
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.UserController.#ctor(Ocean2City.Business.Interfaces.IUserManagerService)">
+            <summary>
+            Initializes a new instance of the UserController
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.UserController.Users">
+            <summary>
+            Get All Users.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.UserController.Details(System.String)">
+            <summary>
+            Get a specific User by its identifier.
+            </summary>
+            <returns>The specific user.</returns>
+            <param name="id">Identifier of the user.</param>
         </member>
         <member name="T:Ocean2City.WebApi.Startup">
             <summary>

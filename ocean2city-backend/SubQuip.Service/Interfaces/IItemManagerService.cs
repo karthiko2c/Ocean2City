@@ -13,6 +13,14 @@ namespace Ocean2City.Business.Interfaces
         IResult GetItemById(string id);
 
         /// <summary>
+        /// Get Item based on category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        IResult GetItemByCategory(string id);
+        
+
+        /// <summary>
         /// Get All Items.
         /// </summary>
         /// <returns></returns>

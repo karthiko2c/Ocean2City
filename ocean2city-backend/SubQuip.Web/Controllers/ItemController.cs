@@ -58,6 +58,18 @@ namespace Ocean2City.WebApi.Controllers
         }
 
         /// <summary>
+        /// Get Items by it category id.
+        /// </summary>
+        /// <returns>The items.</returns>
+        /// <param name="id">Identifier of the category.</param>
+        [HttpGet]
+        public IResult GetItemsByCategory(string id)
+        {
+            var items = _itemManager.GetItemByCategory(id);
+            return items;
+        }
+
+        /// <summary>
         /// Add new item.
         /// </summary>
         /// <returns></returns>

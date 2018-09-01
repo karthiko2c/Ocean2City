@@ -98,6 +98,47 @@ namespace Ocean2City.Business.Logic
         }
 
         /// <summary>
+        /// Get Item based on category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IResult GetItemByCategory(string id)
+        {
+            var result = new Result
+            {
+                Operation = Operation.Read,
+                Status = Status.Success
+            };
+            try
+            {
+                if (!string.IsNullOrEmpty(id))
+                {
+                    List<ItemViewModel> itemList = new List<ItemViewModel>();
+                    var items = _itemRepository.Query.Where(t => t.Category == ObjectId.Parse(id)).ToList();
+                    if (items != null && items.Any())
+                    {
+                        result.Body = itemList.MapFromModel<Item, ItemViewModel>(items);
+                    }
+                    else
+                    {
+                        result.Message = CommonErrorMessages.NoResultFound;
+                    }
+                }
+                else
+                {
+                    result.Status = Status.Fail;
+                    result.Message = CommonErrorMessages.NoIdentifierProvided;
+                }
+            }
+            catch (Exception e)
+            {
+                result.Message = e.Message;
+                result.Status = Status.Fail;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Add a Item
         /// </summary>
         /// <param name="itemViewModel"></param>
