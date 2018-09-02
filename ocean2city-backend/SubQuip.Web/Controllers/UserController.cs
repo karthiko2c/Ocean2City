@@ -8,7 +8,7 @@ namespace Ocean2City.WebApi.Controllers
     /// User Controller
     /// </summary>
     [Produces("application/json")]
-    [Route("api/User/[Action")]
+    [Route("api/User/[Action]")]
     public class UserController : Controller
     {
         private readonly IUserManagerService _userManager;
