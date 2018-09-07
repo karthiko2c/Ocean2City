@@ -1,12 +1,13 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using SubQuip.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Ocean2City.Entity.Models
 {
-    public class Item
+    public class Item: BaseEntity
     {
         [BsonId]
         public ObjectId ItemId { get; set; }

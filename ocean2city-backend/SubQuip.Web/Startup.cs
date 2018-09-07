@@ -96,40 +96,19 @@ namespace Ocean2City.WebApi
                 options.DefaultChallengeScheme = "Jwt";
             }).AddJwtBearer("Jwt", options =>
 			{
-				if (Configuration["AuthMethod"] == "ad")
-				{
-					options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = string.Format(Configuration["AzureAd:Issuer"], Configuration["AzureAd:Audience"]),
-                        ValidAudience = Configuration["AzureAD:Audience"],
-						ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
-                                            
-                    };
-                    options.Authority = string.Format(Configuration["AzureAd:AadInstance"], Configuration["AzureAd:Tenant"]);
-                    options.Audience = Configuration["AzureAD:Audience"];
-				}
-				else if (Configuration["AuthMethod"] == "local")
-				{
-					options.TokenValidationParameters = new TokenValidationParameters
-					{
-						ValidateAudience = false,
-						//ValidAudience = "the audience you want to validate",
-						ValidateIssuer = false,
-						//ValidIssuer = "the isser you want to validate",
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false,
+                    //ValidAudience = "the audience you want to validate",
+                    ValidateIssuer = false,
+                    //ValidIssuer = "the isser you want to validate",
 
-						ValidateIssuerSigningKey = true,
-						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"])),
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"])),
 
-						ValidateLifetime = true, //validate the expiration and not before values in the token
-						ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
-					};
-				} else {
-					throw new Exception("unknown authentication method: " + Configuration["AuthMethod"]);
-				}
+                    ValidateLifetime = true, //validate the expiration and not before values in the token
+                    ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
+                };
             });
         }
 

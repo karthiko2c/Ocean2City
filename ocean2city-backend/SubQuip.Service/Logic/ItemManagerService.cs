@@ -10,6 +10,8 @@ using Ocean2City.ViewModel.Item;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
 namespace Ocean2City.Business.Logic
@@ -17,10 +19,12 @@ namespace Ocean2City.Business.Logic
     public class ItemManagerService : IItemManagerService
     {
         private readonly IItemRepository _itemRepository;
+        private readonly ClaimsPrincipal _principal;
 
-        public ItemManagerService(IItemRepository itemRepository)
+        public ItemManagerService(IItemRepository itemRepository, IPrincipal principal)
         {
             _itemRepository = itemRepository;
+            _principal = principal as ClaimsPrincipal;
         }
 
         /// <summary>
@@ -157,7 +161,7 @@ namespace Ocean2City.Business.Logic
                 if (itemViewModel != null)
                 {
                     item = new Item();
-                    item.MapFromViewModel(itemViewModel);
+                    item.MapFromViewModel(itemViewModel, (ClaimsIdentity)_principal.Identity);
                     _itemRepository.InsertOne(item);
                     result.Body = itemViewModel.ItemName;
                     result.Message = ItemNotification.Added;
@@ -197,7 +201,8 @@ namespace Ocean2City.Business.Logic
                     .Set(x => x.PriceWithClean, itemViewModel.PriceWithClean)
                     .Set(x => x.PriceWithoutClean, itemViewModel.PriceWithoutClean)
                     .Set(x => x.AliasName, itemViewModel.AliasName)
-                    .Set(x => x.Description, itemViewModel.Description);
+                    .Set(x => x.Description, itemViewModel.Description)
+                    .Set(x => x.ModifiedDate, DateTime.Now);
                 _itemRepository.UpdateOne(t => t.ItemId == ObjectId.Parse(itemViewModel.ItemId), updateDefinition);
 
                 result.Message = ItemNotification.Updated;

@@ -16,32 +16,14 @@ namespace Ocean2City.Common.Extensions
             UserClaim userClaim = null;
             if (identity != null)
             {
-                if (identity.Claims.Any())
+                IEnumerable<Claim> claims = identity.Claims;
+                userClaim = new UserClaim
                 {
-                    IEnumerable<Claim> claims = identity.Claims;
-
-                    userClaim = new UserClaim
-                    {
-                        Name = identity.FindFirst("Name").Value                        
-                    };
-                    var emailClaim = identity.FindFirst(ClaimTypes.Email);
-                    if (emailClaim != null)
-                    {
-                        userClaim.Email = emailClaim.Value;
-                    }
-                }
+                    Name = identity.FindFirst(ClaimTypes.Name).Value,              
+                    Email = identity.FindFirst(ClaimTypes.Email).Value
+                };
             }
             return userClaim;
-        }
-
-        public static string GetActiveUserId(this ClaimsIdentity identity)
-        {
-            var emailClaim = identity.FindFirst(ClaimTypes.Email);
-            if (emailClaim != null)
-            {
-                return emailClaim.Value;
-            }
-            return string.Empty;
         }
 
         /// <summary>
@@ -60,10 +42,10 @@ namespace Ocean2City.Common.Extensions
                     {
                         SetColumnValue(Constants.IsActiveColumn, model, true);
                         SetColumnValue(Constants.CreatedDate, model, CurrentDate);
-                        SetColumnValue(Constants.CreatedBy, model, authorizedInfo.Email);
+                        SetColumnValue(Constants.CreatedBy, model, authorizedInfo.Name);
                     }
                     SetColumnValue(Constants.ModifiedDate, model, CurrentDate);
-                    SetColumnValue(Constants.ModifiedBy, model, authorizedInfo.Email);
+                    SetColumnValue(Constants.ModifiedBy, model, authorizedInfo.Name);
                 }
             }
         }

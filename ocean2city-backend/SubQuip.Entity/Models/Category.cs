@@ -1,9 +1,10 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using SubQuip.Entity;
 
 namespace Ocean2City.Entity.Models
 {
-    public class Category
+    public class Category: BaseEntity
     {
         [BsonId]
         public ObjectId CategoryId { get; set; }

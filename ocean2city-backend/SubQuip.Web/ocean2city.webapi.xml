@@ -97,6 +97,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Ocean2City.WebApi.Controllers.LoginController">
+            <summary>
+            Login Controller
+            </summary>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.LoginController.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SubQuip.WebApi.Controllers.LoginController"/> class.
+            </summary>
+            <param name="configuration">Configuration.</param>
+        </member>
+        <member name="M:Ocean2City.WebApi.Controllers.LoginController.LoginUser(Ocean2City.ViewModel.User.UserLoginViewModel)">
+            <summary>
+            Logins the user.
+            </summary>
+            <returns>Access token for the logged in user</returns>
+            <param name="loginViewModel">Login view model.</param>
+        </member>
         <member name="T:Ocean2City.WebApi.Controllers.OrderController">
             <summary>
             Order Controller

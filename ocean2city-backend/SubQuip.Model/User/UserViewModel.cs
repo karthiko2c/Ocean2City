@@ -27,4 +27,11 @@ namespace Ocean2City.ViewModel.User
 
         public string MailId { get; set; }
     }
+
+    public class UserLoginViewModel
+    {
+        public string UserName { get; set; }
+
+        public string UserPassword { get; set; }
+    }
 }

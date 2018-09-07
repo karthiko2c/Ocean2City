@@ -10,16 +10,20 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace Ocean2City.Business.Logic
 {
     public class CategoryManagerService : ICategoryManagerService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly ClaimsPrincipal _principal;
 
-        public CategoryManagerService(ICategoryRepository categoryRepository)
+        public CategoryManagerService(ICategoryRepository categoryRepository, IPrincipal principal)
         {
             _categoryRepository = categoryRepository;
+            _principal = principal as ClaimsPrincipal;
         }
 
         /// <summary>
@@ -112,10 +116,10 @@ namespace Ocean2City.Business.Logic
             try
             {
                 Category category = null;
-                if(categoryViewModel != null)
+                if (categoryViewModel != null)
                 {
                     category = new Category();
-                    category.MapFromViewModel(categoryViewModel);
+                    category.MapFromViewModel(categoryViewModel, (ClaimsIdentity)_principal.Identity);
                     _categoryRepository.InsertOne(category);
                     result.Body = categoryViewModel.CategoryName;
                     result.Message = CategoryNotification.Added;
@@ -150,7 +154,8 @@ namespace Ocean2City.Business.Logic
                 var updateDefinition = Builders<Category>.Update
                     .Set(x => x.CategoryName, categoryViewModel.CategoryName)
                     .Set(x => x.Image, categoryViewModel.Image)
-                    .Set(x => x.IsAvailable, categoryViewModel.IsAvailable);
+                    .Set(x => x.IsAvailable, categoryViewModel.IsAvailable)
+                    .Set(x => x.ModifiedDate, DateTime.Now);
                 _categoryRepository.UpdateOne(t => t.CategoryId == ObjectId.Parse(categoryViewModel.CategoryId), updateDefinition);
 
                 result.Message = CategoryNotification.Updated;
