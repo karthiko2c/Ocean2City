@@ -19,6 +19,10 @@ export class ItemServiceApp {
         return this.apiItemService.ApiItemDetailsGet(id).map(x => (x));
     }
 
+    getItemByCategory(id): Observable<any> {
+        return this.apiItemService.ApiItemGetItemsByCategoryGet(id).map(x => (x));
+    }
+
     addItem(uri, item, image: any): Observable<any> {
         const url = this.apiConfig.rootUrl + uri;
         const formdata = new FormData();

@@ -96,19 +96,19 @@ namespace Ocean2City.WebApi
                 options.DefaultChallengeScheme = "Jwt";
             }).AddJwtBearer("Jwt", options =>
 			{
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateAudience = false,
-                    //ValidAudience = "the audience you want to validate",
-                    ValidateIssuer = false,
-                    //ValidIssuer = "the isser you want to validate",
+                //options.TokenValidationParameters = new TokenValidationParameters
+                //{
+                //    ValidateAudience = false,
+                //    //ValidAudience = "the audience you want to validate",
+                //    ValidateIssuer = false,
+                //    //ValidIssuer = "the isser you want to validate",
 
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"])),
+                //    ValidateIssuerSigningKey = true,
+                //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"])),
 
-                    ValidateLifetime = true, //validate the expiration and not before values in the token
-                    ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
-                };
+                //    ValidateLifetime = true, //validate the expiration and not before values in the token
+                //    ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
+                //};
             });
         }
 

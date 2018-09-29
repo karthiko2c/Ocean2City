@@ -1,0 +1,36 @@
+<div class="container">
+  <li *ngFor="let item of cartItemList">
+
+    <div class="form-group">
+      <label for="name">{{item.itemName}}</label>
+    </div>
+
+    <!-- Default unchecked -->
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="defaultUnchecked" name="Clean" [(ngModel)]="item.isCleaned" [value]="true" (change)="updateCartItem(item.itemId, 'clean')">
+      <label class="custom-control-label" for="defaultUnchecked">With Chop</label>
+    </div>
+
+    <!-- Default checked -->
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="defaultChecked" name="NotClean" [(ngModel)]="item.isCleaned" [value]="false" (change)="updateCartItem(item.itemId, 'withoutClean')">
+      <label class="custom-control-label" for="defaultChecked">Without Chop</label>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="quantity" (click)="updateCartItem(item.itemId, 'dec')"
+          [disabled]="item.itemQuantity == 0">
+          <span class="fa fa-minus"></span>
+        </button>
+      </span>
+      <input readonly type="text" id="quantity" name="quantity" class="form-control input-number" [(ngModel)]="item.itemQuantity"
+        value="10" min="200" max="5000">
+      <span class="input-group-btn">
+        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="quantity" (click)="updateCartItem(item.itemId, 'inc')">
+          <span class="fa fa-plus"></span>
+        </button>
+      </span>
+    </div>
+  </li>
+</div>

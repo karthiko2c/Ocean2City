@@ -1,0 +1,45 @@
+<div class="container">
+  <div *ngIf="isItem">
+    <form (ngSubmit)="onSubmit(addCartItemForm)" #addCartItemForm="ngForm">
+
+      <div class="form-group">
+        <label for="name">{{cartItem.itemName}}</label>
+      </div>
+
+      <div>
+        <img [src]="'data:image/jpg;base64,'+item.imagePath" class="img-rounded" alt="Cinque Terre" width="304" height="236">
+      </div>
+
+      <!-- Default unchecked -->
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="defaultUnchecked" name="Clean" [(ngModel)]="cartItem.isCleaned" [value]="true">
+        <label class="custom-control-label" for="defaultUnchecked">With Chop</label>
+      </div>
+
+      <!-- Default checked -->
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="defaultChecked" name="NotClean" [(ngModel)]="cartItem.isCleaned" [value]="false"
+          checked>
+        <label class="custom-control-label" for="defaultChecked">Without Chop</label>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus" data-field="quantity" (click)="decreaseQuantity()" [disabled]="cartItem.itemQuantity == 0">
+            <span class="fa fa-minus"></span>
+          </button>
+        </span>
+        <input readonly type="text" id="quantity" name="quantity" class="form-control input-number" [(ngModel)]="cartItem.itemQuantity" value="10"
+          min="200" max="5000">
+        <span class="input-group-btn">
+          <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="quantity" (click)="increaseQuantity()">
+            <span class="fa fa-plus"></span>
+          </button>
+        </span>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+
+</div>

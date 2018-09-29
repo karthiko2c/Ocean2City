@@ -13,5 +13,7 @@ namespace Ocean2City.ViewModel.Category
         public bool IsAvailable { get; set; }
 
         public string Image { get; set; }
+
+        public string ImagePath { get; set; }
     }
 }

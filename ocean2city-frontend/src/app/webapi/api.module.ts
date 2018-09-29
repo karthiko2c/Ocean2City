@@ -5,6 +5,7 @@ import { ApiConfiguration } from './api-configuration';
 
 import { CategoryService } from './services/category.service';
 import { ItemService } from './services/item.service';
+import { LoginService } from './services/login.service';
 import { OrderService } from './services/order.service';
 import { UserService } from './services/user.service';
 
@@ -23,6 +24,7 @@ import { UserService } from './services/user.service';
     ApiConfiguration,
    CategoryService,
    ItemService,
+   LoginService,
    OrderService,
    UserService
   ],

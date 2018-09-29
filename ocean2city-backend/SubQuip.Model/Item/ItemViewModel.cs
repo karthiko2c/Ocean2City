@@ -24,6 +24,8 @@ namespace Ocean2City.ViewModel.Item
 
         public string Image { get; set; }
 
+        public string ImagePath { get; set; }
+
         public bool IsAvailable { get; set; }
 
         public string Category { get; set; }

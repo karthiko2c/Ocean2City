@@ -35,8 +35,9 @@ namespace Ocean2City.Common.Extensions
             return content;
         }
 
-        public static void SaveFile(IFormFile file, IHostingEnvironment hostingEnvironment, string folder)
+        public static string SaveFile(IFormFile file, string docName, IHostingEnvironment hostingEnvironment, string folder)
         {
+            string filePath = null;
             string path = Path.Combine(hostingEnvironment.ContentRootPath, folder);
             if (!Directory.Exists(path))
             {
@@ -45,12 +46,30 @@ namespace Ocean2City.Common.Extensions
 
             if (!string.IsNullOrEmpty(file.FileName))
             {
-                var filePath = Path.Combine(path, file.FileName);
+                filePath = Path.Combine(path, docName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     file.CopyTo(fileStream);
                 }
             }
+            return filePath;
+        }
+
+        public static string GetBase64StringForImage(string imgPath)
+        {
+            byte[] imageBytes = File.ReadAllBytes(imgPath);
+            string base64String = Convert.ToBase64String(imageBytes);
+            return base64String;
+        }
+
+        public static string GetExtension(IFormFile file)
+        {
+            string result = null;
+            if (file.Length > 0)
+            {
+                result = Path.GetExtension(file.FileName);
+            }
+            return result;
         }
 
         public static void DeleteFile(string fileName, IHostingEnvironment hostingEnvironment, string folder)

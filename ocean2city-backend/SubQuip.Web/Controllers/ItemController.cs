@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Ocean2City.Business.Interfaces;
 using Ocean2City.Common.CommonData;
@@ -83,8 +78,9 @@ namespace Ocean2City.WebApi.Controllers
                 var image = Request.Form.Files["image"];
                 if (image != null)
                 {
-                    FileHelper.SaveFile(image, _hostingEnvironment, "uploadImages");
-                    itemViewModel.Image = image.FileName;
+                    var docName = itemViewModel.ItemName + FileHelper.GetExtension(image);
+                    itemViewModel.Image = docName;
+                    itemViewModel.ImagePath = FileHelper.SaveFile(image, docName, _hostingEnvironment, "uploadImages");
                 }
             }
             item = _itemManager.AddItem(itemViewModel);
@@ -105,8 +101,9 @@ namespace Ocean2City.WebApi.Controllers
                 var image = Request.Form.Files["image"];
                 if (image != null)
                 {
-                    FileHelper.SaveFile(image, _hostingEnvironment, "uploadImages");
-                    itemViewModel.Image = image.FileName;
+                    var docName = itemViewModel.ItemName + FileHelper.GetExtension(image);                   
+                    itemViewModel.Image = docName;
+                    itemViewModel.ImagePath = FileHelper.SaveFile(image, docName, _hostingEnvironment, "uploadImages");
                 }
             }
             item = _itemManager.UpdateItem(itemViewModel);

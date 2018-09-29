@@ -43,7 +43,13 @@ namespace Ocean2City.Business.Logic
                 var categories = _categoryRepository.Query.ToList();
                 if (categories != null && categories.Any())
                 {
-                    result.Body = categoryLists.MapFromModel<Category, CategoryViewModel>(categories);
+                    result.Body = categories.Select(x =>
+                    {
+                        var category = new CategoryViewModel();
+                        category.MapFromModel(x);
+                        category.ImagePath = FileHelper.GetBase64StringForImage(x.ImagePath);
+                        return category;
+                    }).ToList();
                 }
                 else
                 {
@@ -119,7 +125,8 @@ namespace Ocean2City.Business.Logic
                 if (categoryViewModel != null)
                 {
                     category = new Category();
-                    category.MapFromViewModel(categoryViewModel, (ClaimsIdentity)_principal.Identity);
+                    // category.MapFromViewModel(categoryViewModel, (ClaimsIdentity)_principal.Identity);
+                    category.MapFromViewModel(categoryViewModel);
                     _categoryRepository.InsertOne(category);
                     result.Body = categoryViewModel.CategoryName;
                     result.Message = CategoryNotification.Added;

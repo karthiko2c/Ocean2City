@@ -80,7 +80,9 @@ namespace Ocean2City.Business.Logic
                     if (item != null)
                     {
                         itemViewModel = new ItemViewModel();
-                        result.Body = itemViewModel.MapFromModel(item);
+                        itemViewModel.MapFromModel(item);
+                        itemViewModel.ImagePath = FileHelper.GetBase64StringForImage(item.ImagePath);
+                        result.Body = itemViewModel;
                     }
                     else
                     {
@@ -121,7 +123,13 @@ namespace Ocean2City.Business.Logic
                     var items = _itemRepository.Query.Where(t => t.Category == ObjectId.Parse(id)).ToList();
                     if (items != null && items.Any())
                     {
-                        result.Body = itemList.MapFromModel<Item, ItemViewModel>(items);
+                        result.Body = items.Select(x =>
+                        {
+                            var item = new ItemViewModel();
+                            item.MapFromModel(x);
+                            item.ImagePath = FileHelper.GetBase64StringForImage(x.ImagePath);
+                            return item;
+                        }).ToList();
                     }
                     else
                     {

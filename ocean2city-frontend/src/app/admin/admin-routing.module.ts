@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoryListComponent, CategoryComponent } from './index.admin';
+import { CategoryListComponent, CategoryComponent, ItemComponent, ItemListComponent } from './index.admin';
 
 const routes: Routes = [
   {
@@ -10,6 +10,14 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategoryComponent
+  },
+  {
+    path: 'item',
+    component: ItemComponent
+  },
+  {
+    path: 'item-list',
+    component: ItemListComponent
   }
 ];
 

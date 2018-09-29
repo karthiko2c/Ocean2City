@@ -67,8 +67,9 @@ namespace Ocean2City.WebApi.Controllers
                 var image = Request.Form.Files["image"];
                 if (image != null)
                 {
-                    FileHelper.SaveFile(image, _hostingEnvironment, "uploadImages");
-                    categoryViewModel.Image = image.FileName;
+                    var docName = categoryViewModel.CategoryName + FileHelper.GetExtension(image);
+                    categoryViewModel.Image = docName;
+                    categoryViewModel.ImagePath  = FileHelper.SaveFile(image, docName, _hostingEnvironment, "uploadImages");
                 }
             }
             category = _categoryManager.AddCategory(categoryViewModel);
@@ -89,8 +90,9 @@ namespace Ocean2City.WebApi.Controllers
                 var image = Request.Form.Files["image"];
                 if (image != null)
                 {
-                    FileHelper.SaveFile(image, _hostingEnvironment, "uploadImages");
-                    categoryViewModel.Image = image.FileName;
+                    var docName = categoryViewModel.CategoryName + FileHelper.GetExtension(image);
+                    categoryViewModel.Image = docName;
+                    categoryViewModel.ImagePath = FileHelper.SaveFile(image, docName, _hostingEnvironment, "uploadImages");
                 }
             }
             category = _categoryManager.UpdateCategory(categoryViewModel);

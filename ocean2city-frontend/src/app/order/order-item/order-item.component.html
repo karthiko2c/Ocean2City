@@ -1,0 +1,12 @@
+<div class="container">
+  <li *ngFor="let item of items">
+    <div class="thumbnail">
+      <a (click)="getItemDetail(item.itemId)">
+        <img [src]="'data:image/jpg;base64,'+item.imagePath" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p>{{ item.itemName }}</p>
+        </div>
+      </a>
+    </div>
+  </li>
+</div>

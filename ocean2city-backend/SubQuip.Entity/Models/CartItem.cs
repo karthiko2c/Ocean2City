@@ -11,6 +11,9 @@ namespace Ocean2City.Entity.Models
         [BsonId]
         public ObjectId CartId { get; set; }
 
+        [BsonElement("categoryId")]
+        public ObjectId CategoryId { get; set; }
+        
         [BsonElement("itemId")]
         public ObjectId ItemId { get; set; }
 

@@ -17,5 +17,8 @@ namespace Ocean2City.Entity.Models
 
         [BsonElement("image")]
         public string Image { get; set; }
+
+        [BsonElement("imagePath")]
+        public string ImagePath { get; set; }
     }
 }

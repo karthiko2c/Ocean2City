@@ -3,4 +3,5 @@ export interface CategoryViewModel {
   categoryName?: string;
   isAvailable?: boolean;
   image?: string;
+  imagePath?: string;
 }
