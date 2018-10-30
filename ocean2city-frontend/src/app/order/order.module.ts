@@ -7,7 +7,9 @@ import { AdminModule } from '../admin/admin.module';
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderCategoryComponent, OrderItemComponent, ItemDetailComponent, CartDetailComponent } from './index.order';
 import { ItemServiceApp } from 'src/app/admin/item/shared/item.ServiceApp';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { PersonalDetailComponent } from './order-detail/personal-detail/personal-detail.component';
+import { AddressComponent } from './order-detail/address/address.component';
+import { OtpVerifyComponent } from './order-detail/otp-verify/otp-verify.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     SharedModule,
     AdminModule
   ],
-  declarations: [OrderCategoryComponent, OrderItemComponent, ItemDetailComponent, CartDetailComponent, OrderDetailComponent],
+  declarations: [OrderCategoryComponent, OrderItemComponent, ItemDetailComponent,
+    CartDetailComponent, PersonalDetailComponent, AddressComponent, OtpVerifyComponent],
   providers: [ItemServiceApp]
 })
 export class OrderModule { }

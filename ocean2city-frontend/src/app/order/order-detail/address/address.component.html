@@ -1,0 +1,20 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(addressDetailForm)" #addressDetailForm="ngForm">
+
+      <div class="form-group">
+        <label for="name">Complete Address</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="userDetail.name" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Landmark</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="userDetail.name" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Delivery Instructions</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="userDetail.name" required>
+      </div>      
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+</div>

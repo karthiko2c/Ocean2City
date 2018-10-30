@@ -1,0 +1,11 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(otpForm)" #otpForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Enter OTP</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="otp" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

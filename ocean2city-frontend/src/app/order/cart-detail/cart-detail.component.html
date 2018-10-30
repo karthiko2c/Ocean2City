@@ -1,4 +1,22 @@
 <div class="container">
+  <div *ngIf="personalDetail">
+    <label>Personal Details</label>
+    <!-- <p> {{ }},{{ }}</p>  -->
+    <a (click)="changePersonalDetails()">CHANGE</a>
+  </div>
+  <div *ngIf="personalDetail && address">
+      <label>Delivering Order To</label>
+      <!-- <p> {{ }},{{ }}...</p> -->
+      <a (click)="changeAddress()">CHANGE</a>
+  </div>
+  <div *ngIf="personalDetail && address">
+      <label>Promo Code</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="promocode">
+      <a (click)="applyPromoCode()">APPLY</a>
+  </div>
+  <!-- <div>
+      // DATETIME
+  </div> -->
   <li *ngFor="let item of cartItemList">
 
     <div class="form-group">
@@ -33,4 +51,8 @@
       </span>
     </div>
   </li>
+
+  <button *ngIf="!personalDetail" id="bttn" type="button" (click)="addPersonalDetails()" class="btn btn-primary blue-btn pull-right btn-gap">Add PersonalDetails</button>
+  <button *ngIf="personalDetail && !address" id="bttn" type="button" (click)="addAddress()" class="btn btn-primary blue-btn pull-right btn-gap">Add Address</button>
+  <button *ngIf="personalDetail && address" id="bttn" type="button" (click)="proceedOrder()" class="btn btn-primary blue-btn pull-right btn-gap">Proceed</button>
 </div>

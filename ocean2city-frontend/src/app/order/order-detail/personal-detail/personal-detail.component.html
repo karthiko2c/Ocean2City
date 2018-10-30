@@ -1,0 +1,21 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(personalDetailForm)" #personalDetailForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetail.name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="mobNo">EmailId</label>
+      <input type="text" class="form-control" id="mobNo" name="mobNo" [(ngModel)]="userDetail.mobNo" required>
+    </div>
+
+    <div class="form-group">
+      <label for="mailId">Mob No</label>
+      <input type="text" class="form-control" id="mailId" name="mailId" [(ngModel)]="userDetail.mailId" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

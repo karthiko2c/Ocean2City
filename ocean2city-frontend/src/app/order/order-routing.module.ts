@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OrderCategoryComponent, OrderItemComponent, ItemDetailComponent, CartDetailComponent } from './index.order';
+import {
+  OrderCategoryComponent, OrderItemComponent, ItemDetailComponent, CartDetailComponent,
+  AddressComponent, OtpVerifyComponent, PersonalDetailComponent
+} from './index.order';
 
 const routes: Routes = [
   {
@@ -18,6 +21,18 @@ const routes: Routes = [
   {
     path: 'cart-detail',
     component: CartDetailComponent,
+  },
+  {
+    path: 'address',
+    component: AddressComponent,
+  },
+  {
+    path: 'otp-verify',
+    component: OtpVerifyComponent,
+  },
+  {
+    path: 'personal-detail',
+    component: PersonalDetailComponent,
   },
   {
     path: '',
